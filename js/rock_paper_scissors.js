@@ -9,9 +9,9 @@
 function getComputerChoice(){
     let choice=Math.floor(Math.random()*9);
     console.log(choice);
-    if (choice => 6){
+    if (choice >= 6){
         return "Scissors";
-    } else if (choice => 3){
+    } else if (choice >= 3){
         return "Paper";
     } else {
         return "Rock";
@@ -40,7 +40,7 @@ function playRound(playerSelection, computerSelection){
     playerSelection = playerSelection.charAt(0).toUpperCase()+playerSelection.slice(1).toLowerCase();
     
     //Checks to see if the string is legal. 
-    while ((playerSelection!="Rock") && (playerSelection!="Paper") && (playerSelection!="Scissors")){
+    while ((playerSelection!=="Rock") && (playerSelection!=="Paper") && (playerSelection!=="Scissors")){
         console.log("Error: you must type either: Rock : Paper : Scissors\n");
         playerSelection=playerChocie();
         playerSelection = playerSelection.charAt(0).toUpperCase()+playerSelection.slice(1).toLowerCase();
