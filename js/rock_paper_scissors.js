@@ -17,6 +17,11 @@ function getComputerChoice(){
     }
 }
 
+playerChocie(){
+    let choice=window.prompt("Type rock, paper, or scissors: ");
+    return choice;
+}
+
 /*--------------------------------------------------------------------------------
 // (4)
 // Write a function that plays a single round of Rock Paper Scissors. The
@@ -28,11 +33,17 @@ function getComputerChoice(){
 //        can input rock, ROCK, RocK or any other variation).
 ----------------------------------------------------------------------------------*/
 
-function playRound(playerSelection, computerSelection){
+function playRound(playerSelection, computerSelection){ 
 
     // converts case-insensitive string to Rock, Paper, or Scissors.
     playerSelection = playerSelection.charAt(0).toUpperCase()+playerSelection.slice(1).toLowerCase();
 
-    
+    //Checks to see if the string is legitemate. 
+    while (playerSelection!=="Rock" || playerSelection!=="Paper" || playerSelection!=="Scissors"){
+        console.log("Error: you must type either: Rock : Paper : Scissors\n");
+        playerSelection=playerChocie();
+        playerSelection = playerSelection.charAt(0).toUpperCase()+playerSelection.slice(1).toLowerCase();
+    }
+
 
 }
