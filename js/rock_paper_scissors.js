@@ -8,7 +8,6 @@
 
 function getComputerChoice(){
     let choice=Math.floor(Math.random()*9);
-    console.log(choice);
     if (choice => 6){
         return "Scissors";
     } else if (choice => 3){
@@ -18,4 +17,3 @@ function getComputerChoice(){
     }
 }
 
-console.log(getComputerChoice());
