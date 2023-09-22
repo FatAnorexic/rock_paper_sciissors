@@ -8,6 +8,7 @@
 
 function getComputerChoice(){
     let choice=Math.floor(Math.random()*9);
+    console.log(choice);
     if (choice => 6){
         return "Scissors";
     } else if (choice => 3){
@@ -37,9 +38,9 @@ function playRound(playerSelection, computerSelection){
 
     // converts case-insensitive string to Rock, Paper, or Scissors.
     playerSelection = playerSelection.charAt(0).toUpperCase()+playerSelection.slice(1).toLowerCase();
-
+    
     //Checks to see if the string is legal. 
-    while (playerSelection!=="Rock" || playerSelection!=="Paper" || playerSelection!=="Scissors"){
+    while ((playerSelection!="Rock") && (playerSelection!="Paper") && (playerSelection!="Scissors")){
         console.log("Error: you must type either: Rock : Paper : Scissors\n");
         playerSelection=playerChocie();
         playerSelection = playerSelection.charAt(0).toUpperCase()+playerSelection.slice(1).toLowerCase();
@@ -72,7 +73,8 @@ function game(){
     
     for(let x=0; x<5 ;x++){
         let player=playerChocie();
-        let round=playRound(player, getComputerChoice());
+        let computer=getComputerChoice();
+        let round=playRound(player, computer);
 
         if(round==1){ p++; }
         else if(round==2){c++;}
