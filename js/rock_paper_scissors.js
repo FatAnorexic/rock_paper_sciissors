@@ -17,7 +17,7 @@ function getComputerChoice(){
     }
 }
 
-playerChocie(){
+function playerChocie(){
     let choice=window.prompt("Type rock, paper, or scissors: ");
     return choice;
 }
@@ -60,3 +60,30 @@ function playRound(playerSelection, computerSelection){
         return 2;
     }
 }
+
+/*-----------------------------------------------------------------------------------------------------------------
+// (6)
+// Write a NEW function called `game()`. Use the previous function _inside_ of this one to play a 5 round game that
+// keeps score and reports a winner or loser at the end.
+------------------------------------------------------------------------------------------------------------------*/
+
+function game(){
+    let p=0, c=0;
+    
+    for(let x=0; x<5 ;x++){
+        let player=playerChocie();
+        let round=playRound(player, getComputerChoice());
+
+        if(round==1){ p++; }
+        else if(round==2){c++;}
+        round=0;
+    }
+
+    if(p>c){
+        console.log(`Congratulations! You won the game with ${p} wins to computers ${c} wins.`);
+    }else if(c>p){
+        console.log(`You lost the game. Sorry. Your score: ${p} \t computer: ${c}`);
+    }else{ console.log(`Unbelievable! You tied with the computer! Score: P: ${p} C: ${c}`);}
+}
+
+game();
