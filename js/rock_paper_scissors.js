@@ -7,5 +7,14 @@
 ----------------------------------------------------------------------------------------------------*/
 
 function getComputerChoice(){
-    
+    let choice=Math.floor(Math.random()*10);
+    if (choice > 6){
+        return "Scissors";
+    } else if (choice > 3){
+        return "Paper";
+    } else {
+        return "Rock";
+    }
 }
+
+console.log(getComputerChoice());
