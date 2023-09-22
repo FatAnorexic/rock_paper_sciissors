@@ -40,23 +40,23 @@ function playRound(playerSelection, computerSelection){
     
     //Checks to see if the string is legal. 
     while ((playerSelection!=="Rock") && (playerSelection!=="Paper") && (playerSelection!=="Scissors")){
-        console.log("Error: you must type either: Rock : Paper : Scissors\n");
+        alert("Error: you must type either: Rock : Paper : Scissors\n");
         playerSelection=playerChocie();
         playerSelection = playerSelection.charAt(0).toUpperCase()+playerSelection.slice(1).toLowerCase();
     }
 
     if (playerSelection===computerSelection){
-        console.log("This round is a tie!");
+        alert("This round is a tie!");
         return 0;
     } 
     else if((playerSelection=="Rock" && computerSelection=="Scissors") ||
               (playerSelection=="Paper" && computerSelection=="Rock") ||
               (playerSelection=="Scissors" && computerSelection=="Paper")){
-                console.log(`You win! you drew ${playerSelection} and the computer drew ${computerSelection}!`);
+                alert(`You win! you drew ${playerSelection} and the computer drew ${computerSelection}!`);
                 return 1;
               }
     else{
-        console.log(`You lose! you drew ${playerSelection} and computer drew ${computerSelection}!`);
+        alert(`You lose! you drew ${playerSelection} and computer drew ${computerSelection}!`);
         return 2;
     }
 }
@@ -81,10 +81,10 @@ function game(){
     }
 
     if(p>c){
-        console.log(`Congratulations! You won the game with ${p} wins to computers ${c} wins.`);
+        alert(`Congratulations! You won the game with ${p} wins to computers ${c} wins.`);
     }else if(c>p){
-        console.log(`You lost the game. Sorry. Your score: ${p} \t computer: ${c}`);
-    }else{ console.log(`Unbelievable! You tied with the computer! Score: P: ${p} C: ${c}`);}
+        alert(`You lost the game. Sorry. Your score: ${p} \t computer: ${c}`);
+    }else{ alert(`Unbelievable! You tied with the computer! Score: P: ${p} C: ${c}`);}
 }
 
 game();
