@@ -29,5 +29,6 @@ function getComputerChoice(){
 ----------------------------------------------------------------------------------*/
 
 function playRound(playerSelection, computerSelection){
+    playerSelection = playerSelection.charAt(0).toUpperCase()+playerSelection.slice(1).toLowerCase();
     
 }
