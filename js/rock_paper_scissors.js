@@ -38,12 +38,25 @@ function playRound(playerSelection, computerSelection){
     // converts case-insensitive string to Rock, Paper, or Scissors.
     playerSelection = playerSelection.charAt(0).toUpperCase()+playerSelection.slice(1).toLowerCase();
 
-    //Checks to see if the string is legitemate. 
+    //Checks to see if the string is legal. 
     while (playerSelection!=="Rock" || playerSelection!=="Paper" || playerSelection!=="Scissors"){
         console.log("Error: you must type either: Rock : Paper : Scissors\n");
         playerSelection=playerChocie();
         playerSelection = playerSelection.charAt(0).toUpperCase()+playerSelection.slice(1).toLowerCase();
     }
 
-
+    if (playerSelection===computerSelection){
+        console.log("This round is a tie!");
+        return 0;
+    } 
+    else if((playerSelection=="Rock" && computerSelection=="Scissors") ||
+              (playerSelection=="Paper" && computerSelection=="Rock") ||
+              (playerSelection=="Scissors" && computerSelection=="Paper")){
+                console.log(`You win! you drew ${playerSelection} and the computer drew ${computerSelection}!`);
+                return 1;
+              }
+    else{
+        console.log(`You lose! you drew ${playerSelection} and computer drew ${computerSelection}!`);
+        return 2;
+    }
 }
