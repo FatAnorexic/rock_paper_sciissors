@@ -45,20 +45,22 @@ function playRound(playerSelection, computerSelection){
         playerSelection = playerSelection.charAt(0).toUpperCase()+playerSelection.slice(1).toLowerCase();
     }
     
-    
+    const message=document.querySelector('#container');
     if (playerSelection===computerSelection){
         // alert("This round is a tie!");
+        message.textContent= 'This round is a tie!';
         return 0;
     } 
     else if((playerSelection=="Rock" && computerSelection=="Scissors") ||
               (playerSelection=="Paper" && computerSelection=="Rock") ||
               (playerSelection=="Scissors" && computerSelection=="Paper")){
                 // alert(`You win! you drew ${playerSelection} and the computer drew ${computerSelection}!`);
-                
+                message.textContent=`You win! you drew ${playerSelection} and the computer drew ${computerSelection}!`;
                 return 1;
               }
     else{
         // alert(`You lose! you drew ${playerSelection} and computer drew ${computerSelection}!`);
+        message.textContent=`You lose! you drew ${playerSelection} and computer drew ${computerSelection}!`;
         return 2;
     }
 }
