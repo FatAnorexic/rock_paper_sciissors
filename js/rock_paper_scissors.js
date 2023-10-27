@@ -127,7 +127,11 @@ function game(){
 }
 
 function scoreBoard(player, computer, tie){
-    console.log(`Player: ${player} Computer: ${computer} Tie: ${tie}`);
+    // console.log(`Player: ${player} Computer: ${computer} Tie: ${tie}`);
+
+    let score=document.querySelector('.score');
+    score.textContent=`Player: ${player}\tComputer: ${computer}\tTie: ${tie}`;
+
 }
 
 game();
