@@ -45,10 +45,12 @@ function playRound(playerSelection, computerSelection){
         playerSelection = playerSelection.charAt(0).toUpperCase()+playerSelection.slice(1).toLowerCase();
     }
     
-    const message=document.querySelector('#container');
+    
+   
     if (playerSelection===computerSelection){
         // alert("This round is a tie!");
         message.textContent= 'This round is a tie!';
+        container.appendChild(message);
         return 0;
     } 
     else if((playerSelection=="Rock" && computerSelection=="Scissors") ||
@@ -56,11 +58,13 @@ function playRound(playerSelection, computerSelection){
               (playerSelection=="Scissors" && computerSelection=="Paper")){
                 // alert(`You win! you drew ${playerSelection} and the computer drew ${computerSelection}!`);
                 message.textContent=`You win! you drew ${playerSelection} and the computer drew ${computerSelection}!`;
+                container.appendChild(message);
                 return 1;
               }
     else{
         // alert(`You lose! you drew ${playerSelection} and computer drew ${computerSelection}!`);
         message.textContent=`You lose! you drew ${playerSelection} and computer drew ${computerSelection}!`;
+        container.appendChild(message);
         return 2;
     }
 }
@@ -83,15 +87,28 @@ function game(){
         else if(round==2){c++;}
         round=0;
     }*/
-
+    const buttons=document.querySelectorAll('button');
     buttons.forEach((button)=>{
         button.addEventListener('click', () => {
             round=playRound(button.className, getComputerChoice());
             console.log(round);
+            
             const container=document.querySelector('#container');
-            if (round==1) {p++;}
-            else if(round==2) {c++;} 
-            else {tie++;}
+            const message=document.createElement('div');
+            message.classList.add('message');
+
+            if (round==1) {
+                p++;
+                
+            }
+            else if(round==2) {
+                c++;
+               
+            } 
+            else {
+                tie++;
+                
+            }
             scoreBoard(p,c,tie);
             // console.log(p);
         });
@@ -107,12 +124,6 @@ function game(){
 }
 
 function scoreBoard(player, computer, tie){
-
-    const container = document.querySelector('#container');
-
-    const player=document.querySelector('.player');
-    const computer=document.querySelector('.computer');
-
 
 }
 
