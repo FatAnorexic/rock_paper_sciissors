@@ -131,7 +131,11 @@ function scoreBoard(player, computer, tie){
 
     let score=document.querySelector('.score');
     score.textContent=`Player: ${player}\tComputer: ${computer}\tTie: ${tie}`;
+    
 
+    if(player===5){
+        score.textContent=`Congratulations! You won the game with ${player} wins to computers ${computer} wins.`;
+    }
 }
 
 game();
