@@ -44,7 +44,7 @@ function playRound(playerSelection, computerSelection){
         playerSelection=playerChocie();
         playerSelection = playerSelection.charAt(0).toUpperCase()+playerSelection.slice(1).toLowerCase();
     }
-
+    let p=0, c=0;
     const container=document.querySelector('#container');
 
     if (playerSelection===computerSelection){
@@ -56,7 +56,7 @@ function playRound(playerSelection, computerSelection){
               (playerSelection=="Scissors" && computerSelection=="Paper")){
                 // alert(`You win! you drew ${playerSelection} and the computer drew ${computerSelection}!`);
                 const player=document.querySelector('.player');
-                player.textContent('Howdy');
+                player.textContent=`Player: ${p+=1}`;
                 container.appendChild(player);
                 return 1;
               }
