@@ -49,7 +49,9 @@ function playRound(playerSelection, computerSelection){
    const container=document.querySelector('#container')
    const message=document.querySelector('.message');
     if (playerSelection===computerSelection){
+        
         // alert("This round is a tie!");
+        
         message.textContent= 'This round is a tie!';
         container.appendChild(message);
         return 0;
@@ -57,13 +59,17 @@ function playRound(playerSelection, computerSelection){
     else if((playerSelection=="Rock" && computerSelection=="Scissors") ||
               (playerSelection=="Paper" && computerSelection=="Rock") ||
               (playerSelection=="Scissors" && computerSelection=="Paper")){
+                
                 // alert(`You win! you drew ${playerSelection} and the computer drew ${computerSelection}!`);
+                
                 message.textContent=`You win! you drew ${playerSelection} and the computer drew ${computerSelection}!`;
                 container.appendChild(message);
                 return 1;
               }
     else{
+        
         // alert(`You lose! you drew ${playerSelection} and computer drew ${computerSelection}!`);
+        
         message.textContent=`You lose! you drew ${playerSelection} and computer drew ${computerSelection}!`;
         container.appendChild(message);
         return 2;
@@ -121,7 +127,7 @@ function game(){
 }
 
 function scoreBoard(player, computer, tie){
-
+    console.log(`Player: ${player} Computer: ${computer} Tie: ${tie}`);
 }
 
 game();
