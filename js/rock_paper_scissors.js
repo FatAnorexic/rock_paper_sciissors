@@ -46,7 +46,8 @@ function playRound(playerSelection, computerSelection){
     }
     
     
-   
+   const container=document.querySelector('#container')
+   const message=document.querySelector('.message');
     if (playerSelection===computerSelection){
         // alert("This round is a tie!");
         message.textContent= 'This round is a tie!';
@@ -93,10 +94,6 @@ function game(){
             round=playRound(button.className, getComputerChoice());
             console.log(round);
             
-            const container=document.querySelector('#container');
-            const message=document.createElement('div');
-            message.classList.add('message');
-
             if (round==1) {
                 p++;
                 
