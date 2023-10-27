@@ -84,7 +84,7 @@ function game(){
     buttons.forEach((button)=>{
         button.addEventListener('click', () => {
             let round=playRound(button.className, getComputerChoice());
-            alert(round);
+            console.log(round);
         });
     });
     /*
