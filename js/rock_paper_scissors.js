@@ -45,18 +45,23 @@ function playRound(playerSelection, computerSelection){
         playerSelection = playerSelection.charAt(0).toUpperCase()+playerSelection.slice(1).toLowerCase();
     }
 
+    const container=document.querySelector('#container');
+
     if (playerSelection===computerSelection){
-        alert("This round is a tie!");
+        // alert("This round is a tie!");
         return 0;
     } 
     else if((playerSelection=="Rock" && computerSelection=="Scissors") ||
               (playerSelection=="Paper" && computerSelection=="Rock") ||
               (playerSelection=="Scissors" && computerSelection=="Paper")){
-                alert(`You win! you drew ${playerSelection} and the computer drew ${computerSelection}!`);
+                // alert(`You win! you drew ${playerSelection} and the computer drew ${computerSelection}!`);
+                const player=document.querySelector('.player');
+                player.textContent('Howdy');
+                container.appendChild(player);
                 return 1;
               }
     else{
-        alert(`You lose! you drew ${playerSelection} and computer drew ${computerSelection}!`);
+        // alert(`You lose! you drew ${playerSelection} and computer drew ${computerSelection}!`);
         return 2;
     }
 }
@@ -69,7 +74,7 @@ function playRound(playerSelection, computerSelection){
 
 function game(){
     let p=0, c=0;
-    
+    let round;
    /* for(let x=0; x<5 ;x++){
         let player=playerChocie();
         let computer=getComputerChoice();
@@ -83,11 +88,14 @@ function game(){
     const buttons = document.querySelectorAll('button');
     buttons.forEach((button)=>{
         button.addEventListener('click', () => {
-            let round=playRound(button.className, getComputerChoice());
+            round=playRound(button.className, getComputerChoice());
             console.log(round);
+            if (round==1){p++;}
+            else if(round==2){c++;}
+            // console.log(p);
         });
     });
-    
+
     /*
     if(p>c){
         alert(`Congratulations! You won the game with ${p} wins to computers ${c} wins.`);
