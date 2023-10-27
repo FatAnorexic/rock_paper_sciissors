@@ -44,8 +44,7 @@ function playRound(playerSelection, computerSelection){
         playerSelection=playerChocie();
         playerSelection = playerSelection.charAt(0).toUpperCase()+playerSelection.slice(1).toLowerCase();
     }
-    let p=0, c=0;
-    const container=document.querySelector('#container');
+    
 
     if (playerSelection===computerSelection){
         // alert("This round is a tie!");
@@ -55,9 +54,7 @@ function playRound(playerSelection, computerSelection){
               (playerSelection=="Paper" && computerSelection=="Rock") ||
               (playerSelection=="Scissors" && computerSelection=="Paper")){
                 // alert(`You win! you drew ${playerSelection} and the computer drew ${computerSelection}!`);
-                const player=document.querySelector('.player');
-                player.textContent=`Player: ${p+=1}`;
-                container.appendChild(player);
+                
                 return 1;
               }
     else{
@@ -90,8 +87,19 @@ function game(){
         button.addEventListener('click', () => {
             round=playRound(button.className, getComputerChoice());
             console.log(round);
-            if (round==1){p++;}
-            else if(round==2){c++;}
+            const container=document.querySelector('#container');
+            if (round==1){
+                p++;
+                const player=document.querySelector('.player');
+                player.textContent=`Player: ${p}`;
+                container.appendChild(player);
+            }
+            else if(round==2){
+                c++;
+                const comp=document.querySelector('.computer');
+                comp.textContent=`Computer: ${c}`;
+                container.appendChild(comp);
+            }
             // console.log(p);
         });
     });
