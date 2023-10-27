@@ -45,7 +45,7 @@ function playRound(playerSelection, computerSelection){
         playerSelection = playerSelection.charAt(0).toUpperCase()+playerSelection.slice(1).toLowerCase();
     }
     
-
+    
     if (playerSelection===computerSelection){
         // alert("This round is a tie!");
         return 0;
@@ -70,7 +70,7 @@ function playRound(playerSelection, computerSelection){
 ------------------------------------------------------------------------------------------------------------------*/
 
 function game(){
-    let p=0, c=0;
+    let p=0, c=0, tie=0;
     let round;
    /* for(let x=0; x<5 ;x++){
         let player=playerChocie();
@@ -82,24 +82,15 @@ function game(){
         round=0;
     }*/
 
-    const buttons = document.querySelectorAll('button');
     buttons.forEach((button)=>{
         button.addEventListener('click', () => {
             round=playRound(button.className, getComputerChoice());
             console.log(round);
             const container=document.querySelector('#container');
-            if (round==1){
-                p++;
-                const player=document.querySelector('.player');
-                player.textContent=`Player: ${p}`;
-                container.appendChild(player);
-            }
-            else if(round==2){
-                c++;
-                const comp=document.querySelector('.computer');
-                comp.textContent=`Computer: ${c}`;
-                container.appendChild(comp);
-            }
+            if (round==1) {p++;}
+            else if(round==2) {c++;} 
+            else {tie++;}
+            scoreBoard(p,c,tie);
             // console.log(p);
         });
     });
@@ -111,6 +102,16 @@ function game(){
         alert(`You lost the game. Sorry. Your score: ${p} \t computer: ${c}`);
     }else{ alert(`Unbelievable! You tied with the computer! Score: P: ${p} C: ${c}`);}
     */
+}
+
+function scoreBoard(player, computer, tie){
+
+    const container = document.querySelector('#container');
+
+    const player=document.querySelector('.player');
+    const computer=document.querySelector('.computer');
+
+
 }
 
 game();
