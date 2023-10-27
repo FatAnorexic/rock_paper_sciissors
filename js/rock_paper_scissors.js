@@ -70,7 +70,7 @@ function playRound(playerSelection, computerSelection){
 function game(){
     let p=0, c=0;
     
-    for(let x=0; x<5 ;x++){
+   /* for(let x=0; x<5 ;x++){
         let player=playerChocie();
         let computer=getComputerChoice();
         let round=playRound(player, computer);
@@ -78,7 +78,7 @@ function game(){
         if(round==1){ p++; }
         else if(round==2){c++;}
         round=0;
-    }
+    }*/
 
     if(p>c){
         alert(`Congratulations! You won the game with ${p} wins to computers ${c} wins.`);
