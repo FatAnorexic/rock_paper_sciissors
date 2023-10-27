@@ -83,15 +83,17 @@ function game(){
     const buttons = document.querySelectorAll('button');
     buttons.forEach((button)=>{
         button.addEventListener('click', () => {
-            alert(button.className);
+            let round=playRound(button.className, getComputerChoice());
+            alert(round);
         });
     });
-
+    /*
     if(p>c){
         alert(`Congratulations! You won the game with ${p} wins to computers ${c} wins.`);
     }else if(c>p){
         alert(`You lost the game. Sorry. Your score: ${p} \t computer: ${c}`);
     }else{ alert(`Unbelievable! You tied with the computer! Score: P: ${p} C: ${c}`);}
+    */
 }
 
 game();
