@@ -80,6 +80,13 @@ function game(){
         round=0;
     }*/
 
+    const buttons = document.querySelectorAll('button');
+    buttons.forEach((button)=>{
+        button.addEventListener('click', () => {
+            alert(button.className);
+        });
+    });
+
     if(p>c){
         alert(`Congratulations! You won the game with ${p} wins to computers ${c} wins.`);
     }else if(c>p){
