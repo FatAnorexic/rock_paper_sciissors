@@ -87,6 +87,7 @@ function game(){
             console.log(round);
         });
     });
+    
     /*
     if(p>c){
         alert(`Congratulations! You won the game with ${p} wins to computers ${c} wins.`);
