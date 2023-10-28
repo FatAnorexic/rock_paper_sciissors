@@ -99,11 +99,7 @@ function game(){
         button.addEventListener('click', () => {
             round=playRound(button.className, getComputerChoice());
             console.log(round);
-            if(p===5 || c===5){
-                p=0;
-                c=0;
-                tie=0;
-            }
+            
 
             if (round===1) {
                 p++;
@@ -115,6 +111,14 @@ function game(){
                 tie++;
             }
             scoreBoard(p,c,tie);
+            if(p>=5||c>=5){
+                const btn=document.createElement('BUTTON');
+                let text=document.createTextNode('Reset');
+                btn.appendChild(text);
+                document.body.appendChild(btn);
+                
+
+            }
             // console.log(p);
         });
     });
