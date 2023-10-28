@@ -1,3 +1,9 @@
+
+
+//Making my score variables global so that they retain their value in memory beyond the scoreBoard
+// function
+let player=0, computer=0, tie=0;
+
 /*---------------------------------------------------------------------------------------------------
 //(3)
 // Your game is going to play against the computer, so begin with a function called getComputerChoice 
@@ -83,7 +89,7 @@ function playRound(playerSelection, computerSelection){
 ------------------------------------------------------------------------------------------------------------------*/
 
 function game(){
-    let p=0, c=0, tie=0;
+    //let p=0, c=0, tie=0;
     let round;
    /* for(let x=0; x<5 ;x++){
         let player=playerChocie();
@@ -100,28 +106,22 @@ function game(){
             round=playRound(button.className, getComputerChoice());
             console.log(round);
             
-
-            if (round===1) {
-                p++;
-            }
-            else if(round===2) {
-                c++;
-            } 
-            else {
-                tie++;
-            }
-            scoreBoard(p,c,tie);
+            scoreBoard(round);
+            /*
             if(p>=5||c>=5){
+                
+                console.log('button disabled');
                 const btn=document.createElement('BUTTON');
                 let text=document.createTextNode('Reset');
                 btn.appendChild(text);
-                document.body.appendChild(btn);
+                document.body.appendChild(btn)
                 
-
-            }
+            }*/
             // console.log(p);
         });
     });
+
+    
 
     /*
     if(p>c){
@@ -132,8 +132,19 @@ function game(){
     */
 }
 
-function scoreBoard(player, computer, tie){
+function scoreBoard(round){
     // console.log(`Player: ${player} Computer: ${computer} Tie: ${tie}`);
+    
+
+    switch(round){
+        case 0: tie++;
+        break;
+        case 1: player++;
+        break;
+        case 2: computer++;
+        break;
+    }
+
 
     let score=document.querySelector('.score');
     score.textContent=`Player: ${player}\tComputer: ${computer}\tTie: ${tie}`;
