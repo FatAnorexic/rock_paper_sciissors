@@ -99,18 +99,20 @@ function game(){
         button.addEventListener('click', () => {
             round=playRound(button.className, getComputerChoice());
             console.log(round);
-            
-            if (round==1) {
-                p++;
-                
+            if(p===5 || c===5){
+                p=0;
+                c=0;
+                tie=0;
             }
-            else if(round==2) {
+
+            if (round===1) {
+                p++;
+            }
+            else if(round===2) {
                 c++;
-               
             } 
             else {
                 tie++;
-                
             }
             scoreBoard(p,c,tie);
             // console.log(p);
@@ -135,6 +137,9 @@ function scoreBoard(player, computer, tie){
 
     if(player===5){
         score.textContent=`Congratulations! You won the game with ${player} wins to computers ${computer} wins.`;
+    }
+    else if(computer===5){
+        score.textContent= `You lost the game. Sorry. Your score: ${player} \t computer: ${computer}`
     }
 }
 
