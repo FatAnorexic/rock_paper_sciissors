@@ -89,39 +89,18 @@ function playRound(playerSelection, computerSelection){
 ------------------------------------------------------------------------------------------------------------------*/
 
 function game(){
-    //let p=0, c=0, tie=0;
     let round;
-   /* for(let x=0; x<5 ;x++){
-        let player=playerChocie();
-        let computer=getComputerChoice();
-        let round=playRound(player, computer);
-
-        if(round==1){ p++; }
-        else if(round==2){c++;}
-        round=0;
-    }*/
+    
     const buttons=document.querySelectorAll('button');
     buttons.forEach((button)=>{
         button.addEventListener('click', () => {
+            
             round=playRound(button.className, getComputerChoice());
             console.log(round);
             
             scoreBoard(round);
-            /*
-           */
-            // console.log(p);
         });
     });
-
-    
-
-    /*
-    if(p>c){
-        alert(`Congratulations! You won the game with ${p} wins to computers ${c} wins.`);
-    }else if(c>p){
-        alert(`You lost the game. Sorry. Your score: ${p} \t computer: ${c}`);
-    }else{ alert(`Unbelievable! You tied with the computer! Score: P: ${p} C: ${c}`);}
-    */
 }
 
 function scoreBoard(round){
