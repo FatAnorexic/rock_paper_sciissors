@@ -125,7 +125,8 @@ function scoreBoard(round){
         rock.disabled=true;  
         paper.disabled=true;
         scissors.disabled=true;
-
+        document.querySelector('.message').textContent='';
+        
         //Display winning or losing message for the player
         if(player>computer){
             score.textContent=`Congratulations! You won the game with ${player} wins to computers ${computer} wins.`;
