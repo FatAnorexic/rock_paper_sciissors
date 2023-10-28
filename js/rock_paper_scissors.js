@@ -106,7 +106,6 @@ function game(){
 function scoreBoard(round){
     // console.log(`Player: ${player} Computer: ${computer} Tie: ${tie}`);
     
-
     switch(round){
         case 0: tie++;
         break;
@@ -116,19 +115,10 @@ function scoreBoard(round){
         break;
     }
 
-
     let score=document.querySelector('.score');
     score.textContent=`Player: ${player}\tComputer: ${computer}\tTie: ${tie}`;
     
-
-    if(player===5){
-        score.textContent=`Congratulations! You won the game with ${player} wins to computers ${computer} wins.`;
-    }
-    else if(computer===5){
-        score.textContent= `You lost the game. Sorry. Your score: ${player} \t computer: ${computer}`
-    }
-
-    if(player>=5||computer>=5){
+    if(player===5||computer===5){
         
         //First disable all the play buttons, so that the game can no longer continue
         //without the player choosing to reset it.
@@ -140,11 +130,32 @@ function scoreBoard(round){
         rock.disabled=true;  
         paper.disabled=true;
         scissors.disabled=true;
-        
+
+        //Display winning or losing message for the player
+        if(player>computer){
+            score.textContent=`Congratulations! You won the game with ${player} wins to computers ${computer} wins.`;
+        }else{
+            score.textContent= `You lost the game. Sorry. Your score: ${player} \t computer: ${computer}`;
+        }
+
+        //Code below creates a new button in the DOM tree which will have an event
+        //listener attached. Upon click the game will reset and buttons will be enabled
         const btn=document.createElement('BUTTON');
         let text=document.createTextNode('Reset');
         btn.appendChild(text);
         document.body.appendChild(btn)
+
+        btn.addEventListener('click', () => {
+            // reset global variables
+            player=0; computer=0; tie=0;
+            score.textContent=`Player: ${player}\tComputer: ${computer}\tTie: ${tie}`;
+            
+            //delete the button, and re-enable the buttons. 
+            document.body.removeChild(btn);
+            rock.disabled=false;
+            paper.disabled=false;
+            scissors.disabled=false;
+        });
         
     }
 }
