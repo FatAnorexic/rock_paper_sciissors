@@ -108,15 +108,7 @@ function game(){
             
             scoreBoard(round);
             /*
-            if(p>=5||c>=5){
-                
-                console.log('button disabled');
-                const btn=document.createElement('BUTTON');
-                let text=document.createTextNode('Reset');
-                btn.appendChild(text);
-                document.body.appendChild(btn)
-                
-            }*/
+           */
             // console.log(p);
         });
     });
@@ -155,6 +147,26 @@ function scoreBoard(round){
     }
     else if(computer===5){
         score.textContent= `You lost the game. Sorry. Your score: ${player} \t computer: ${computer}`
+    }
+
+    if(player>=5||computer>=5){
+        
+        //First disable all the play buttons, so that the game can no longer continue
+        //without the player choosing to reset it.
+
+        let rock = document.querySelector('.Rock');
+        let paper=document.querySelector('.Paper');
+        let scissors=document.querySelector('.Scissors');
+        
+        rock.disabled=true;  
+        paper.disabled=true;
+        scissors.disabled=true;
+        
+        const btn=document.createElement('BUTTON');
+        let text=document.createTextNode('Reset');
+        btn.appendChild(text);
+        document.body.appendChild(btn)
+        
     }
 }
 
